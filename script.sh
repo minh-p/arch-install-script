@@ -24,6 +24,7 @@ mount /dev/$root_partition /mnt
 # For home partition
 read -p "Did you also create home partition? [y/n] " answer
 if [[ $answer = y ]] ; then
+    lsblk
     echo "Enter Home partition name (ex: sda5): "
     read home_partition
     mkfs.ext4 /dev/$home_partition
@@ -32,10 +33,11 @@ fi
 # For EFI
 read -p "Did you also create efi partition? [y/n] " answer
 if [[ $answer = y ]] ; then
-  echo "Enter EFI partition: "
-  read efi_partition
-  mkfs.vfat -F 32 $efi_partition
-  mount /dev/$efi_partition /mnt/boot/EFI
+    lsblk
+    echo "Enter EFI partition: "
+    read efi_partition
+    mkfs.vfat -F 32 $efi_partition
+    mount /dev/$efi_partition /mnt/boot/EFI
 fi
 # pacstrap
 echo "We are moving on to pacstrapping"
