@@ -144,6 +144,8 @@ if [[ $answer = n ]] ; then
     exit
 fi
 # dotfiles
+echo "Enter your user password"
+read password
 read -p "Do you have a git repo for dot files? [y/n] " answer
 if [[ $answer = y ]] ; then
     echo "Enter your git repo link or path (BE SURE to add .git; ex: https://github.com/user/dotfiles.git)"
@@ -158,7 +160,7 @@ if [[ $answer = y ]] ; then
     echo "Enter your git repo link or path for dwm"
     read dwm_git_repo_path
     git clone --depth=1 "$dwm_git_repo_path" ~/.local/src/dwm
-    sudo make -C ~/.local/src/dwm install
+    echo $password | sudo -S make -C ~/.local/src/dwm install
 fi
 # dmenu: launcher
 read -p "Do you have a dmenu git repo? [y/n] " answer
@@ -166,7 +168,7 @@ if [[ $answer = y ]] ; then
     echo "Enter your git repo link or path for dmenu"
     read dmenu_git_repo_path
     git clone --depth=1 "$dmenu_git_repo_path" ~/.local/src/dmenu
-    sudo make -C ~/.local/src/dmenu install
+    echo $password | sudo make -S -C ~/.local/src/dmenu install
 fi
 # dwmblocks: dwm modular statusbar
 read -p "Do you have a dwmblocks git repo? [y/n] " answer
@@ -183,7 +185,7 @@ if [[ $answer = y ]] ; then
     read aur_helper
     git clone https://aur.archlinux.org/$aur_helper.git
     cd $aur_helper
-    makepkg -fsri
+    echo $password | sudo -S makepkg -fsri
     cd
 fi
 
@@ -198,7 +200,7 @@ if [[ $answer = y ]] ; then
     echo "xf86-video-ati"
     echo "xf86-video-intel"
     read gpu_driver
-    sudo pacman -S $gpu_driver
+    echo $password | sudo -S pacman -S $gpu_driver
 fi
 if [[ $answer = n ]] ; then
     echo "You are going to have to configure GPU on your own!"
@@ -206,5 +208,6 @@ fi
 echo "Regardless, you are going to have to configure gpu stuff! Sorry :("
 
 # config dots
+source /home/$username/.bashrc
 config config --local status.showUntrackedFiles no
 exit
