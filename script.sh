@@ -45,7 +45,8 @@ genfstab -U /mnt >> /mnt/etc/fstab
 # Moving onto the next part
 sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
-arch-chroot /mnt ./arch_install2.sh
+arch-chroot /mnt
+./arch_install2.sh
 exit 
 #part2
 echo "We are on the second part of the install guide!"
@@ -100,6 +101,7 @@ echo "Next, downloading the packages!"
 echo "First, enable multilib"
 echo "[multilib]" >> /etc/pacman.conf
 echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+pacman -Sy
 sleep 5
 pacman -S xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
      noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
