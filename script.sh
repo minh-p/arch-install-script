@@ -146,6 +146,8 @@ fi
 # dotfiles
 echo "Enter your user password"
 read password
+echo "Enter your username"
+read username
 read -p "Do you have a git repo for dot files? [y/n] " answer
 if [[ $answer = y ]] ; then
     echo "Enter your git repo link or path (BE SURE to add .git; ex: https://github.com/user/dotfiles.git)"
@@ -185,7 +187,7 @@ if [[ $answer = y ]] ; then
     read aur_helper
     git clone https://aur.archlinux.org/$aur_helper.git
     cd $aur_helper
-    makepkg -fsri
+    sudo -u $username makepkg -fsri
     cd
 fi
 
@@ -208,6 +210,8 @@ fi
 echo "Regardless, you are going to have to configure gpu stuff! Sorry :("
 
 # config dots
+echo "Enter your username again please"
+read username
 source /home/$username/.bashrc
 config config --local status.showUntrackedFiles no
 exit
