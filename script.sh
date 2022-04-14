@@ -88,6 +88,8 @@ passwd
 pacman --noconfirm -S grub efibootmgr os-prober
 # boot option
 echo "We are going to configure GRUB bootloader"
+echo "What is your drive's name again?"
+read drive
 read -p "Are you booting on UEFI? [y/n] " answer
 if [[ $answer = y ]] ; then
     grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=GRUB
@@ -127,7 +129,7 @@ sleep 3
 systemctl enable NetworkManager
 # groups and sudo permission
 echo "Setting groups and sudo permission"
-echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+echo "root ALL=(ALL) ALL" >> /etc/sudoers
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 echo "Enter your username: "
 read username
