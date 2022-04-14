@@ -16,6 +16,7 @@ echo "Enter drive name (ex: sda): "
 read drive
 fdisk /dev/$drive
 echo "Nice! You have finished creating all the partitions!"
+lsblk
 echo "Now, enter your root partition name (ex: sda4): "
 read root_partition
 mkfs.ext4 /dev/$root_partition
