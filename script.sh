@@ -1,6 +1,7 @@
 #!/bin/bash
 #part1
 # Inspired by Bugswriter's arch install script :). As well as copied (for some)
+printf '\033c'
 echo "Welcome to the Minh's Arch install script."
 # Speed up downloading
 sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
@@ -49,6 +50,7 @@ arch-chroot /mnt
 ./arch_install2.sh
 exit 
 #part2
+printf '\033c'
 echo "We are on the second part of the install guide!"
 pacman -S --noconfirm sed
 sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
@@ -137,6 +139,7 @@ chmod +x $ai3_path
 su -c $ai3_path -s /bin/bash $username
 exit
 #part3
+printf '\033c'
 cd $HOME
 nmtui
 read -p "Would you like to continue this script post-installation stage? [y/n] " answer
