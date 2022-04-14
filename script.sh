@@ -100,6 +100,7 @@ sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 echo "What is your cpu brand? (ex: intel)"
 read cpu_brand
 pacman -S $cpu_brand-ucode
+echo "GRUB_DISABLE_OS_PROBER=false" >> /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 # downloading necessary packages
 echo "Next, downloading the packages!"
