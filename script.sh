@@ -118,7 +118,7 @@ sleep 3
 systemctl enable NetworkManager
 # groups and sudo permission
 echo "Setting groups and sudo permission"
-echo "root ALL=(ALL) ALL" >> /etc/sudoers
+echo "%wheel ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 echo "Enter your username: "
 read username
