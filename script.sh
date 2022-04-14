@@ -183,19 +183,6 @@ if [[ $answer = y ]] ; then
     git clone --depth=1 "$dwmblocks_git_repo_path" ~/.local/src/dwmblocks
     sudo make -C ~/.local/src/dwmblocks install
 fi
-# AUR helper
-read -p "Would you like to install an AUR helper? [y/n] " answer
-if [[ $answer = y ]] ; then
-    echo "Enter the name of your AUR helper"
-    read aur_helper
-    git clone https://aur.archlinux.org/$aur_helper.git
-    cd $aur_helper
-    echo $password | sudo -S -u $username makepkg -fsri
-    cd
-fi
-
-$aur_helper -S mpd-rich-presence-discord-git
-
 # gpu drivers for Open source only
 read -p "Would you like to download open-source gpu driver [y/n] " answer
 if [[ $answer = y ]] ; then
@@ -211,10 +198,16 @@ if [[ $answer = n ]] ; then
     echo "You are going to have to configure GPU on your own!"
 fi
 echo "Regardless, you are going to have to configure gpu stuff! Sorry :("
+# view autostart to install what is left needed
+read -p "Would you like to view your autostart file? [y/n]" answer
+if [[ $answer = y ]] ; then
+    echo "Enter your autostart file path (ex: /home/user/.config/autostart)"
+    read autostart_path
+    echo "Check out your autostart file! You should have all of these things installed:"
+    cat $autostart_path
+fi
 
 # config dots
-echo "Enter your username again please"
-read username
-source /home/$username/.bashrc
+alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 exit
