@@ -135,6 +135,7 @@ su -c $ai3_path -s /bin/bash $username
 exit
 #part3
 cd $HOME
+nmtui
 read -p "Would you like to continue this script post-installation stage? [y/n] " answer
 if [[ $answer = n ]] ; then
     exit
@@ -194,7 +195,7 @@ if [[ $answer = y ]] ; then
     echo "xf86-video-ati"
     echo "xf86-video-intel"
     read gpu_driver
-    pacman -S $gpu_driver
+    sudo pacman -S $gpu_driver
 fi
 if [[ $answer = n ]] ; then
     echo "You are going to have to configure GPU on your own!"
