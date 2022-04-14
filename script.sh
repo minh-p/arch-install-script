@@ -187,7 +187,7 @@ if [[ $answer = y ]] ; then
     read aur_helper
     git clone https://aur.archlinux.org/$aur_helper.git
     cd $aur_helper
-    sudo -u $username makepkg -fsri
+    echo $password | sudo -S -u $username makepkg -fsri
     cd
 fi
 
