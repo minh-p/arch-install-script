@@ -4,6 +4,7 @@
 echo "Welcome to the Minh's Arch install script."
 # Speed up downloading
 sed -i "s/^#ParallelDownloads = 5$/ParallelDownloads = 15/" /etc/pacman.conf
+pacman --noconfirm -Sy archlinux-keyring
 # loadkeys
 loadkeys us
 # synchronize time
