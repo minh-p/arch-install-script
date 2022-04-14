@@ -19,7 +19,7 @@ read root_partition
 mkfs.ext4 /dev/$root_partition
 mount /dev/$root_partition /mnt
 # For home partition
-read -p "Did you also create home partition? [y/n]" answer
+read -p "Did you also create home partition? [y/n] " answer
 if [[ $answer = y ]] ; then
     echo "Enter Home partition name (ex: sda5): "
     read home_partition
@@ -27,7 +27,7 @@ if [[ $answer = y ]] ; then
     mount /dev/$home_partition /mnt/home
 fi
 # For EFI
-read -p "Did you also create efi partition? [y/n]" answer
+read -p "Did you also create efi partition? [y/n] " answer
 if [[ $answer = y ]] ; then
   echo "Enter EFI partition: "
   read efi_partition
@@ -81,7 +81,7 @@ passwd
 pacman --noconfirm -S grub efibootmgr os-prober
 # boot option
 echo "We are going to configure GRUB bootloader"
-read -p "Are you booting on UEFI? [y/n]" answer
+read -p "Are you booting on UEFI? [y/n] " answer
 if [[ $answer = y ]] ; then
     grub-install --target=x86_64-efi --efi-directory=/boot/EFI --bootloader-id=GRUB
     sed -i 's/quiet/pci=noaer/g' /etc/default/grub
@@ -135,12 +135,12 @@ su -c $ai3_path -s /bin/bash $username
 exit
 #part3
 cd $HOME
-read -p "Would you like to continue this script post-installation stage? [y/n]" answer
+read -p "Would you like to continue this script post-installation stage? [y/n] " answer
 if [[ $answer = n ]] ; then
     exit
 fi
 # dotfiles
-read -p "Do you have a git repo for dot files? [y/n]" answer
+read -p "Do you have a git repo for dot files? [y/n] " answer
 if [[ $answer = y ]] ; then
     echo "Enter your git repo link or path (BE SURE to add .git; ex: https://github.com/user/dotfiles.git)"
     read git_repo_path
@@ -149,7 +149,7 @@ if [[ $answer = y ]] ; then
     rm -rf tmpdotfiles
 fi
 # dwm: Window Manager
-read -p "Do you have a dwm git repo? [y/n]" answer
+read -p "Do you have a dwm git repo? [y/n] " answer
 if [[ $answer = y ]] ; then
     echo "Enter your git repo link or path for dwm"
     read dwm_git_repo_path
@@ -157,7 +157,7 @@ if [[ $answer = y ]] ; then
     sudo make -C ~/.local/src/dwm install
 fi
 # dmenu: launcher
-read -p "Do you have a dmenu git repo? [y/n]" answer
+read -p "Do you have a dmenu git repo? [y/n] " answer
 if [[ $answer = y ]] ; then
     echo "Enter your git repo link or path for dmenu"
     read dmenu_git_repo_path
@@ -165,7 +165,7 @@ if [[ $answer = y ]] ; then
     sudo make -C ~/.local/src/dmenu install
 fi
 # dwmblocks: dwm modular statusbar
-read -p "Do you have a dwmblocks git repo? [y/n]" answer
+read -p "Do you have a dwmblocks git repo? [y/n] " answer
 if [[ $answer = y ]] ; then
     echo "Enter your git repo link or path for dwmblocks"
     read dwmblocks_git_repo_path
@@ -173,7 +173,7 @@ if [[ $answer = y ]] ; then
     sudo make -C ~/.local/src/dwmblocks install
 fi
 # AUR helper
-read -p "Would you like to install an AUR helper? [y/n]" answer
+read -p "Would you like to install an AUR helper? [y/n] " answer
 if [[ $answer = y ]] ; then
     echo "Enter the name of your AUR helper"
     read aur_helper
@@ -186,7 +186,7 @@ fi
 $aur_helper -S mpd-rich-presence-discord-git
 
 # gpu drivers for Open source only
-read -p "Would you like to download open-source gpu driver [y/n]" answer
+read -p "Would you like to download open-source gpu driver [y/n] " answer
 if [[ $answer = y ]] ; then
     echo "Enter your gpu driver's name (ex: xf86-video-nouveau or xf86-video-amdgpu)"
     echo "xf86-video-nouveau"
