@@ -103,7 +103,7 @@ echo "[multilib]" >> /etc/pacman.conf
 echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 pacman -Sy
 sleep 5
-pacman -S xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
+pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
      noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
      sxiv mpv zathura zathura-pdf-mupdf ffmpeg imagemagick  \
      fzf man-db xwallpaper python-pywal unclutter xclip maim \
