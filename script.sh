@@ -96,6 +96,9 @@ pacman -S $cpu_brand-ucode
 grub-mkconfig -o /boot/grub/grub.cfg
 # downloading necessary packages
 echo "Next, downloading the packages!"
+echo "First, enable multilib"
+echo "[multilib]" >> /etc/pacman.conf
+echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 sleep 5
 pacman -S xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
      noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
