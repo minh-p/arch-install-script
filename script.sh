@@ -122,7 +122,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      dhcpcd connman wpa_supplicant rsync pamixer mpd ncmpcpp \
      zsh-syntax-highlighting xdg-user-dirs libconfig \
      bluez bluez-utils alacritty man-pages reflector redshift firefox nitrogen \
-     mesa networkmanager
+     mesa networkmanager starship picom htop neofetch
 # enable network
 echo "Enabling NetworkManager in systemd"
 sleep 3
@@ -214,6 +214,9 @@ if [[ $answer = y ]] ; then
 fi
 
 # config dots
+cd /home/$username
+git clone https://github.com/minh-p/MinimalNvim .config/nvim
+git clone https://github.com/minh-p/emacs_config .config/emacs
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
 exit
