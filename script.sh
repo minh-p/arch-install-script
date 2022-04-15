@@ -117,12 +117,12 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      fzf man-db xwallpaper python-pywal unclutter xclip maim \
      zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl  \
      dosfstools ntfs-3g git sxhkd zsh pipewire pipewire-pulse \
-     emacs-nox arc-gtk-theme rsync qutebrowser dash \
+     emacs-nox arc-gtk-theme rsync qutebrowser \
      xcompmgr libnotify dunst slock jq aria2 cowsay \
      dhcpcd connman wpa_supplicant rsync pamixer mpd ncmpcpp \
      zsh-syntax-highlighting xdg-user-dirs libconfig \
      bluez bluez-utils alacritty man-pages reflector redshift firefox nitrogen \
-     mesa networkmanager starship picom htop neofetch
+     mesa networkmanager starship picom htop neofetch discord
 # enable network
 echo "Enabling NetworkManager in systemd"
 sleep 3
