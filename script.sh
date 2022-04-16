@@ -121,7 +121,8 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      dhcpcd connman wpa_supplicant rsync pamixer mpd ncmpcpp \
      zsh-syntax-highlighting xdg-user-dirs libconfig \
      bluez bluez-utils alacritty man-pages reflector redshift firefox nitrogen \
-     mesa networkmanager starship htop neofetch discord timidity mesa-utils
+     mesa networkmanager starship htop neofetch discord timidity mesa-utils \
+     deepin-screenshot
 # enable network
 echo "Enabling NetworkManager in systemd"
 sleep 3
