@@ -218,7 +218,7 @@ git clone https://aur.archlinux.org/pikaur.git ~/.local/src/
 cd ~/.local/src/pikaur
 makepkg -fsri
 cd
-pikaur -S lua-language-server ani-cli picom-git nerd-fonts-complete
+pikaur -S lua-language-server ani-cli picom-git nerd-fonts-complete pacmixer
 
 # config dots
 cd /home/$username
