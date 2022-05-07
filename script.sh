@@ -213,6 +213,13 @@ if [[ $answer = y ]] ; then
     cat $autostart_path
 fi
 
+# aur packages
+git clone https://aur.archlinux.org/pikaur.git
+cd pikaur
+makepkg -fsri
+cd
+pikaur -S lua-language-server ani-cli picom-git
+
 # config dots
 cd /home/$username
 git clone https://github.com/minh-p/MinimalNvim .config/nvim
