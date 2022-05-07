@@ -214,11 +214,11 @@ if [[ $answer = y ]] ; then
 fi
 
 # aur packages
-git clone https://aur.archlinux.org/pikaur.git
-cd pikaur
+git clone https://aur.archlinux.org/pikaur.git ~/.local/src/
+cd ~/.local/src/pikaur
 makepkg -fsri
 cd
-pikaur -S lua-language-server ani-cli picom-git
+pikaur -S lua-language-server ani-cli picom-git nerd-fonts-complete
 
 # config dots
 cd /home/$username
