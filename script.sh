@@ -219,7 +219,10 @@ git clone https://aur.archlinux.org/pikaur.git ~/.local/src/
 cd ~/.local/src/pikaur
 makepkg -fsri
 cd
-pikaur -S lua-language-server ani-cli picom-git nerd-fonts-complete pacmixer mpd-rich-presence-discord-git
+pikaur -S lua-language-server ani-cli picom-git nerd-fonts-complete pacmixer mpd-rich-presence-discord-git \
+    betterlockscreen
+
+systemctl enable betterlockscreen@USER
 
 # config dots
 cd /home/$username
