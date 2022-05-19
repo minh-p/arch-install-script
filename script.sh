@@ -220,7 +220,7 @@ cd ~/.local/src/pikaur
 makepkg -fsri
 cd
 pikaur -S lua-language-server ani-cli picom-git nerd-fonts-complete pacmixer mpd-rich-presence-discord-git \
-    betterlockscreen
+    betterlockscreen otf-inconsolata-lgc
 
 systemctl enable betterlockscreen@USER
 
