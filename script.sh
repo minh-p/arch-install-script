@@ -111,7 +111,7 @@ echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 pacman -Sy
 sleep 5
 pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xbacklight xorg-xprop \
-     noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
+     noto-fonts noto-fonts-emoji noto-fonts-cjk ttf-dejavu ttf-jetbrains-mono ttf-joypixels ttf-font-awesome \
      sxiv mpv zathura zathura-pdf-mupdf ffmpeg imagemagick  \
      fzf man-db xwallpaper python-pywal unclutter xclip maim \
      zip unzip unrar p7zip xdotool papirus-icon-theme brightnessctl  \
@@ -220,7 +220,7 @@ cd ~/.local/src/pikaur
 makepkg -fsri
 cd
 pikaur -S lua-language-server ani-cli picom-git nerd-fonts-complete pacmixer mpd-rich-presence-discord-git \
-    betterlockscreen otf-inconsolata-lgc
+    betterlockscreen noto-fonts-main
 
 systemctl enable betterlockscreen@USER
 
