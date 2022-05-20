@@ -71,8 +71,10 @@ cat /etc/locale.gen
 echo "Enter locale language choice: "
 read locacle_choice
 echo $locacle_choice >> /etc/locale.gen
-echo LANG=$locale_choice > /etc/locale.conf
-echo LC_MESSAGES=$locale_choice >> /etc/locale.conf
+echo "Enter option for LANG, LC_MESSAGES. Ex: en_US.UTF-8 not en_US.UTF-8 UTF-8"
+read lang
+echo LANG=$lang > /etc/locale.conf
+echo LC_MESSAGES=$lang >> /etc/locale.conf
 locale-gen
 echo "Enter keymap (ex: us): "
 read keymap
