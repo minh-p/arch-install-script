@@ -28,6 +28,7 @@ if [[ $answer = y ]] ; then
     echo "Enter Home partition name (ex: sda5): "
     read home_partition
     mkfs.ext4 /dev/$home_partition
+    mkdir mnt/home
     mount /dev/$home_partition /mnt/home
 fi
 # For EFI
