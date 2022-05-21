@@ -53,7 +53,6 @@ sed '1,/^#part2$/d' `basename $0` > /mnt/arch_install2.sh
 chmod +x /mnt/arch_install2.sh
 arch-chroot /mnt
 ./arch_install2.sh
-exit 
 #part2
 printf '\033c'
 echo "We are on the second part of the install guide!"
@@ -129,7 +128,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      bluez bluez-utils alacritty man-pages reflector redshift firefox nitrogen \
      mesa networkmanager starship htop neofetch discord timidity mesa-utils \
      deepin-screenshot feh polkit xf86-input-synaptics yt-dlp mpc tmux thunar \
-     bashtop
+     bashtop rust
 # enable network
 echo "Enabling NetworkManager in systemd"
 sleep 3
@@ -228,7 +227,7 @@ cd
 pikaur -S lua-language-server ani-cli picom-git nerd-fonts-complete pacmixer mpd-rich-presence-discord-git \
     betterlockscreen noto-fonts-main
 
-systemctl enable betterlockscreen@USER
+systemctl enable betterlockscreen@$USER
 
 # config dots
 cd /home/$username
@@ -236,4 +235,5 @@ git clone https://github.com/minh-p/MinimalNvim .config/nvim
 git clone https://github.com/minh-p/emacs_config .config/emacs
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 config config --local status.showUntrackedFiles no
+cargo install mpd-discord-rpc
 exit
