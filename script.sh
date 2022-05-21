@@ -36,7 +36,7 @@ if [[ $answer = y ]] ; then
     lsblk
     echo "Enter EFI partition: "
     read efi_partition
-    mkfs.vfat -F 32 $efi_partition
+    mkfs.vfat -F 32 /dev/$efi_partition
     mount /dev/$efi_partition /mnt/boot/EFI
 fi
 # pacstrap
