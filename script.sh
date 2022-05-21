@@ -45,7 +45,7 @@ fi
 echo "We are moving on to pacstrapping"
 read -p "What is your editor of choice? " editor
 echo "Pacstrapping..."
-pacstrap /mnt base base-devel linux linux-firmware $editor
+pacstrap /mnt base base-devel linux linux-firmware linux-headers $editor
 # genfstab
 genfstab -U /mnt >> /mnt/etc/fstab
 # Moving onto the next part
