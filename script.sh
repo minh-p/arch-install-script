@@ -128,7 +128,7 @@ pacman -S --noconfirm xorg-server xorg-xinit xorg-xkill xorg-xsetroot xorg-xback
      bluez bluez-utils alacritty man-pages reflector redshift firefox nitrogen \
      mesa networkmanager starship htop neofetch discord timidity mesa-utils \
      deepin-screenshot feh polkit xf86-input-synaptics yt-dlp mpc tmux thunar \
-     bashtop rust fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-unikey
+     bashtop rust fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-qt fcitx5-unikey sway
 # enable network
 echo "Enabling NetworkManager in systemd"
 sleep 3
@@ -225,7 +225,7 @@ cd ~/.local/src/pikaur
 makepkg -fsri
 cd
 pikaur -S lua-language-server ani-cli picom-git nerd-fonts-complete pacmixer mpd-rich-presence-discord-git \
-    betterlockscreen noto-fonts-main
+    betterlockscreen noto-fonts-main wob sov
 
 systemctl enable betterlockscreen@$USER
 
